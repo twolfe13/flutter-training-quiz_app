@@ -41,10 +41,16 @@ class _QuizState extends State<Quiz> {
     if (selectedAnswers.length == questions.length) {
       setState(() {
         //reset answers back to an empty list after completing the quiz
-        selectedAnswers = [];
         activeScreen = 'results-screen';
       });
     }
+  }
+
+  void restartQuiz() {
+    setState(() {
+      selectedAnswers = [];
+      activeScreen = 'questions-screen';
+    });
   }
 
   @override
@@ -58,7 +64,10 @@ class _QuizState extends State<Quiz> {
     }
     // sets results screen
     if (activeScreen == 'results-screen') {
-      screenWidget = const ResultsScreen();
+      screenWidget = ResultsScreen(
+        chosenAnswers: selectedAnswers,
+        onRestart: restartQuiz,
+      );
     }
     return MaterialApp(
       home: Scaffold(
