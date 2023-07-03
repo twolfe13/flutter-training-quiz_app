@@ -40,7 +40,7 @@ class SummaryItem extends StatelessWidget {
               Text(
                 itemData['user_answer'] as String,
                 style: GoogleFonts.lato(
-                  color: const Color.fromARGB(255, 233, 230, 230),
+                  color: const Color.fromARGB(255, 141, 141, 141),
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
                 ),
